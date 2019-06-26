@@ -5,5 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public abstract class ScriptableValue<T> : ScriptableObject
 {
-    public T value;
+    [SerializeField]
+    protected T _value;
+    public virtual T value
+    {
+        get { return _value; }
+        set { _value = value; }
+    }
 }

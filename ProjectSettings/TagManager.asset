@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - Floor
-  - Interactable
-  - 
-  - 
+  - Player
+  - Enemy
+  - XP
+  - Sword
   - 
   - 
   - 

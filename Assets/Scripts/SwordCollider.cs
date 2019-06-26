@@ -8,8 +8,9 @@ public class SwordCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<Enemy>())
-        character.HitEnemy(collision.GetComponent<Enemy>());
+        if (collision.isTrigger) return;
+        if (collision.GetComponent<Enemy>())
+            character.HitEnemy(collision.GetComponent<Enemy>());
     }
 
 }

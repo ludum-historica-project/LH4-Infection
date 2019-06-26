@@ -4,10 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newScriptableEvent", menuName = "Scriptables/Event")]
 public class ScriptableEvent : ScriptableObject
 {
-    public System.Action<object> OnInvoke = (o) => { };
+    public System.Action<float> OnInvoke = (n) => { };
 
-    public void Invoke(object o)
+    public void Invoke(float n)
     {
-        OnInvoke(o);
+        OnInvoke(n);
     }
 }

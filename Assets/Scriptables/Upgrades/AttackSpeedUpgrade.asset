@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e24fdf7af7f1ca41a6c3d8f393247bb, type: 3}
+  m_Name: AttackSpeedUpgrade
+  m_EditorClassIdentifier: 
+  _value: 0
+  name: Celerity
+  baseValue:
+    refType: 0
+    reference: {fileID: 11400000, guid: a1562be936d534649aac05d97023632d, type: 2}
+    localValue: 1
+  level: 0
+  multPerLevel: 0.1
+  sprite: {fileID: 0}
+  description: Greater agility and control of the blade.

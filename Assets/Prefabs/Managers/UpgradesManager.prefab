@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8558949003206683624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8558949003206683626}
+  - component: {fileID: 8558949003206683625}
+  m_Layer: 0
+  m_Name: UpgradesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8558949003206683626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558949003206683624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.42977655, y: 3.3493838, z: -27.854124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8558949003206683625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558949003206683624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134ed1679e4427b47b858439b5a31496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlayerHealthUpdated: {fileID: 11400000, guid: e239e677e4895d944a8d7039c97d35f0,
+    type: 2}
+  maxPlayerHP:
+    refType: 1
+    reference: {fileID: 11400000, guid: ee057ed9a5158a3458ca8a120fe693ca, type: 2}
+    localValue: 0
+  onXPGain: {fileID: 11400000, guid: 11eb30bb5e1f40d4586bfc312f5450ff, type: 2}
+  xpToNextSkillPoint:
+    refType: 1
+    reference: {fileID: 11400000, guid: eea018279023d5444b69e04c642fccb8, type: 2}
+    localValue: 0
+  OnLevelGain: {fileID: 11400000, guid: 4c9ea247fb372f147a3444f4084862ea, type: 2}
+  upgradePoints: 50
+  onInfectionCounterUpdate: {fileID: 11400000, guid: 700baec582f0d41458dce16915180ddb,
+    type: 2}
+  onInfectionMultUpdate: {fileID: 11400000, guid: fb7c2fdbccda09d4ea001faf64cecb08,
+    type: 2}
+  InfectionDamageThreshold:
+    refType: 1
+    reference: {fileID: 11400000, guid: e2c8a5fbb0cf78347ad7dc853be6d2d1, type: 2}
+    localValue: 0
+  upgrades:
+  - {fileID: 11400000, guid: c1c96412e518e2c4c82174ce686bac74, type: 2}
+  - {fileID: 11400000, guid: 37293d785c4a7be44b58e7382fa3e31a, type: 2}
+  - {fileID: 11400000, guid: ee057ed9a5158a3458ca8a120fe693ca, type: 2}
+  - {fileID: 11400000, guid: 5834d0d69e144304aa1b476c26e2bbab, type: 2}
