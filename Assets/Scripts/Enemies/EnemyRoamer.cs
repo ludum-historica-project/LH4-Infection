@@ -39,10 +39,10 @@ public class EnemyRoamer : Enemy
         Stun();
         _direction = Vector3.Reflect(_direction, collision.contacts[0].normal);
         CharacterController character = collision.collider.GetComponent<CharacterController>();
-        if (character)
+        if (_aggro && character)
         {
             if (Vector3.Dot(transform.up.normalized, Vector3.ProjectOnPlane((character.transform.position - transform.position), Vector3.forward).normalized) > .5)
-                character.TakeDamage(damage);
+                character.TakeDamage(damage, this);
         }
     }
 }

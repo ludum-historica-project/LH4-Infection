@@ -20,6 +20,9 @@ public class CharacterController : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
 
+    Vector2 knockback;
+
+
     private List<Enemy> hitEnemies = new List<Enemy>();
 
     // Start is called before the first frame update
@@ -34,7 +37,7 @@ public class CharacterController : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!locked)
         {
@@ -44,14 +47,16 @@ public class CharacterController : MonoBehaviour
             {
                 direction = direction.normalized;
             }
+            direction += (Vector3)knockback;
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
             transform.up = Vector3.Slerp(transform.up, (mousePos - transform.position).normalized, .333f);
-            _rb2D.MovePosition(transform.position + direction * Time.deltaTime * moveSpeed.Value);
+            _rb2D.MovePosition(transform.position + direction * Time.fixedDeltaTime * moveSpeed.Value);
             if (Input.GetMouseButtonDown(0))
             {
                 _animator.SetTrigger("Swing");
             }
+            knockback = knockback * .9f;
         }
         _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, Color.white, .1f);
     }
@@ -65,8 +70,9 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Enemy source)
     {
+        if (source) knockback += ((Vector2)(transform.position - source.transform.position)).normalized * damage / 10;
         _spriteRenderer.color = Color.red;
         currentHealth -= damage;
         if (playerHealthUpdated)

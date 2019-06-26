@@ -21,12 +21,12 @@ public class PlayerCanvas : MonoBehaviour
     }
     void UpdateMutationCount(float count)
     {
-        mutationText.text = "Mutations" + '\n' + count;
+        mutationText.text = count.ToString();
     }
 
     void UpdateInfectionCount(float count)
     {
-        infectionText.text = "Infection" + '\n' + "x" + count;
+        infectionText.text = "x" + count.ToString();
 
     }
 

@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class UpgradesManager : Manager
 {
@@ -32,6 +35,16 @@ public class UpgradesManager : Manager
     private int InfectionMultiplier = 1;
 
     int prevHealth = 0;
+
+
+#if UNITY_EDITOR
+    [MenuItem("Commands/Clear Progress")]
+    public static void ClearProgress()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+#endif
 
 
 

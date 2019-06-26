@@ -29,7 +29,7 @@ public class EnemyChaser : Enemy
     {
         base.Update();
         float speedMult = 1;
-        if (_target != null)
+        if (_target != null && _aggro)
         {
             _direction = Vector3.ProjectOnPlane((_currentFleeTime <= 0 ?
                 _target.transform.position - transform.position :
@@ -62,7 +62,7 @@ public class EnemyChaser : Enemy
         {
             if (_currentHitCooldown <= 0)
             {
-                character.TakeDamage(damage);
+                character.TakeDamage(damage, this);
                 _currentHitCooldown = hitCooldown;
             }
         }

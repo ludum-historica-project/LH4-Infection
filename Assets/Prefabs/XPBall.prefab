@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 617315544322113946}
   - component: {fileID: 617315544322113945}
   - component: {fileID: 2106696735193279738}
-  - component: {fileID: 4829295756784690806}
   - component: {fileID: 6390760697367763728}
   - component: {fileID: 5334066050863309762}
   m_Layer: 10
@@ -96,23 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31a6f81aaefbdf40876987a53db42b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectionRange: 10
 --- !u!58 &2106696735193279738
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617315544322113944}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!58 &4829295756784690806
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +111,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 0.5
 --- !u!96 &6390760697367763728
 TrailRenderer:
   serializedVersion: 2

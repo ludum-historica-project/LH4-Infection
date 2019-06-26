@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class XPBall : MonoBehaviour
 {
+    public float collectionRange = 4;
 
     CharacterController character;
     Rigidbody2D _rb2D;
@@ -13,32 +14,23 @@ public class XPBall : MonoBehaviour
     {
         _rb2D = GetComponent<Rigidbody2D>();
         _rb2D.AddForce(transform.up * Random.Range(1, 5) / Time.deltaTime);
+        character = FindObjectOfType<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (character != null)
+        if (character != null && Vector3.Distance(transform.position, character.transform.position) < collectionRange)
         {
             _travelTime += Time.deltaTime;
             _rb2D.velocity = _rb2D.velocity.magnitude * Vector3.Slerp(_rb2D.velocity.normalized, (character.transform.position - transform.position).normalized, _travelTime / 5)
                 + (character.transform.position - transform.position).normalized * _travelTime * 10;
-
         }
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (character == null)
-        {
-            character = collision.GetComponent<CharacterController>();
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.GetComponent<CharacterController>())
+        if (collision.GetComponent<CharacterController>())
         {
             Director.GetManager<UpgradesManager>().AddXP(1);
             Destroy(gameObject);

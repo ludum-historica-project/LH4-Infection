@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class DeathScreen : MonoBehaviour
+using TMPro;
+public class GameOverScreen : MonoBehaviour
 {
     public ScriptableEvent onPlayerHeathUpdated;
+
+    public string deathMessage;
+    public string winMessage;
+
+    public TextMeshProUGUI frontText;
+    public TextMeshProUGUI backText;
 
     Animator _animator;
     // Start is called before the first frame update
@@ -18,8 +25,17 @@ public class DeathScreen : MonoBehaviour
         if (value <= 0)
         {
             _animator.SetTrigger("ShowScreen");
+            frontText.text = backText.text = deathMessage;
             Invoke("GoToUpgrades", 5);
         }
+    }
+
+    public void Win()
+    {
+        Debug.Log("Yuo win");
+        _animator.SetTrigger("ShowScreen");
+        frontText.text = backText.text = winMessage;
+        Invoke("GoToUpgrades", 5);
     }
 
     void GoToUpgrades()
@@ -28,8 +44,9 @@ public class DeathScreen : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
+        onPlayerHeathUpdated.OnInvoke -= PlayerHealthUpdated;
 
     }
 }

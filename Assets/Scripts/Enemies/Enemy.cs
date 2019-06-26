@@ -10,21 +10,23 @@ public class Enemy : MonoBehaviour
     public float speed = 2;
     public float rotationSpeed = 90;
 
+    protected bool _aggro;
+
     public System.Action<int, Vector3> OnDeath = (xp, pos) => { };
 
     protected Vector3 _direction;
     protected System.Action OnTakeDamage = () => { };
 
-    protected SpriteRenderer _spriteRenderer;
+    protected SpriteRenderer[] _spriteRenderers;
     protected Rigidbody2D _rb2D;
 
 
 
     protected virtual void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         _rb2D = GetComponent<Rigidbody2D>();
-        transform.up = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.forward) * transform.up;
+        _direction = transform.up;
     }
 
     protected void MoveTo(Vector3 position)
@@ -34,24 +36,34 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (_spriteRenderer)
-            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, Color.white, .1f);
+        foreach (var spriteRenderer in _spriteRenderers)
+        {
+            spriteRenderer.color = Color.Lerp(spriteRenderer.color, Color.white, .1f);
+        }
     }
 
     public void TakeDamage(float damage)
     {
         OnTakeDamage();
         health -= (int)damage;
-        _spriteRenderer.color = Color.red;
+        foreach (var spriteRenderer in _spriteRenderers)
+        {
+            spriteRenderer.color = Color.red;
+        }
         if (health <= 0)
         {
             Kill();
         }
     }
 
+    public void EnableAggression()
+    {
+        _aggro = true;
+    }
+
     private void Kill()
     {
-        OnDeath(xp, transform.position);
         Destroy(gameObject);
+        OnDeath(xp, transform.position);
     }
 }
