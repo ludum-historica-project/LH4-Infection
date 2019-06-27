@@ -32,20 +32,27 @@ public class OptionsMenu : MonoBehaviour
 
     public void ChangeMasterVolume(float newVol)
     {
-
+        Director.GetManager<SoundManager>().SetMasterVolumeScalar(newVol);
     }
 
     public void ChangeSoundsVolume(float newVol)
     {
-
+        Director.GetManager<SoundManager>().SetSoundsVolumeScalar(newVol);
     }
 
     public void ChangeMusicVolume(float newVol)
     {
-
+        Director.GetManager<SoundManager>().SetMusicVolumeScalar(newVol);
     }
 
 
+
+    public void CalibrateVolumeSliders()
+    {
+        sliderMasterVolume.value = Director.GetManager<SoundManager>().masterVolume;
+        sliderSoundsVolume.value = Director.GetManager<SoundManager>().soundsVolume;
+        sliderMusicVolume.value = Director.GetManager<SoundManager>().musicVolume;
+    }
 
     public void SetResetting(bool resetting)
     {

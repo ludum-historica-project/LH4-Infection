@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 24100000, guid: 6885d993cc7a5ff429a20fe0c692c85e, type: 2}
-  defaultSoundGroup: {fileID: 24300002, guid: 6885d993cc7a5ff429a20fe0c692c85e, type: 2}
+  soundGroup: {fileID: -3169145190154131326, guid: 6885d993cc7a5ff429a20fe0c692c85e,
+    type: 2}
+  musicGroup: {fileID: 1489213736219767583, guid: 6885d993cc7a5ff429a20fe0c692c85e,
+    type: 2}

@@ -1681,6 +1681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 1130684845}
+  bgm: {fileID: 11400000, guid: 48d08ab82f31acb4aa9b89df89121689, type: 2}
 --- !u!1001 &1972964461
 PrefabInstance:
   m_ObjectHideFlags: 0

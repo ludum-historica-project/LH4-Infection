@@ -5,7 +5,13 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
 
+
     public OptionsMenu optionsMenu;
+    public SoundValue bgm;
+    private void Start()
+    {
+        Director.GetManager<SoundManager>().PlayMusic(bgm);
+    }
 
     public void Play()
     {

@@ -5,18 +5,45 @@ using UnityEngine.Audio;
 public class SoundManager : Manager
 {
     public AudioMixer master;
-    public AudioMixerGroup defaultSoundGroup;
+    public AudioMixerGroup soundGroup;
+    public AudioMixerGroup musicGroup;
+
     private List<AudioSource> _usedSources = new List<AudioSource>();
     private List<AudioSource> _freeSources = new List<AudioSource>();
 
-    public float volume { get; private set; } = 1;
+    private AudioSource musicSource;
+
+    public float masterVolume { get; private set; } = 1;
+    public float musicVolume { get; private set; } = 1;
+    public float soundsVolume { get; private set; } = 1;
 
     private void Start()
     {
-        volume = PlayerPrefs.GetFloat("Volume", 1);
-        SetMasterVolumeScalar(volume);
+        masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1);
+        musicVolume = PlayerPrefs.GetFloat("MasterVolume", 1);
+        soundsVolume = PlayerPrefs.GetFloat("SoundsVolume", 1);
+
+        SetMasterVolumeScalar(soundsVolume);
+        SetMusicVolumeScalar(musicVolume);
+        SetSoundsVolumeScalar(soundsVolume);
     }
 
+
+
+    public void PlayMusic(SoundValue music, bool forceRestart = false)
+    {
+        if (musicSource == null) //first song
+        {
+            musicSource = new GameObject().AddComponent<AudioSource>();
+            musicSource.transform.parent = transform;
+            musicSource.gameObject.name = "Music";
+        }
+        if (musicSource.clip != music.value || forceRestart)
+        {
+            AssignSoundToSource(musicSource, music);
+            musicSource.Play();
+        }
+    }
 
     public AudioSource PlaySound(SoundValue sound)
     {
@@ -46,9 +73,33 @@ public class SoundManager : Manager
     public void SetMasterVolumeScalar(float vol)
     {
         SetMasterVolumeDB((Mathf.Sqrt(vol) - 1) * 80);
-        PlayerPrefs.SetFloat("Volume", vol);
-        volume = vol;
+        PlayerPrefs.SetFloat("MasterVolume", vol);
+        soundsVolume = vol;
     }
+
+    public void SetMusicVolumeDB(float vol)
+    {
+        master.SetFloat("MusicVolume", vol);
+    }
+
+    public void SetMusicVolumeScalar(float vol)
+    {
+        SetMusicVolumeDB((Mathf.Sqrt(vol) - 1) * 80);
+        PlayerPrefs.SetFloat("MusicVolume", vol);
+        soundsVolume = vol;
+    }
+    public void SetSoundsVolumeDB(float vol)
+    {
+        master.SetFloat("SoundsVolume", vol);
+    }
+
+    public void SetSoundsVolumeScalar(float vol)
+    {
+        SetSoundsVolumeDB((Mathf.Sqrt(vol) - 1) * 80);
+        PlayerPrefs.SetFloat("SoundsVolume", vol);
+        soundsVolume = vol;
+    }
+
 
     void AssignSoundToSource(AudioSource source, SoundValue sound)
     {
@@ -56,7 +107,7 @@ public class SoundManager : Manager
         source.volume = sound.volume;
         source.loop = sound.loop;
         source.pitch = sound.pitch;
-        if (sound.mixerGroup == null) source.outputAudioMixerGroup = defaultSoundGroup;
+        if (sound.mixerGroup == null) source.outputAudioMixerGroup = soundGroup;
         else source.outputAudioMixerGroup = sound.mixerGroup;
     }
     private void Update()
