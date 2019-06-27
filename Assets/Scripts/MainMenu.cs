@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("UpgradesMenu");
     }
 
     public void ShowOptions()

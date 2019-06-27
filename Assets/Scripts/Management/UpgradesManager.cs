@@ -32,7 +32,7 @@ public class UpgradesManager : Manager
 
     private int xp = 0;
     private int currentInfectionProgress;
-    private int InfectionMultiplier = 1;
+    private int infectionMultiplier = 1;
 
     int prevHealth = 0;
 
@@ -69,14 +69,21 @@ public class UpgradesManager : Manager
             while (currentInfectionProgress >= InfectionDamageThreshold.Value)
             {
                 currentInfectionProgress -= (int)InfectionDamageThreshold.Value;
-                InfectionMultiplier++;
-                onInfectionMultUpdate.Invoke(InfectionMultiplier);
+                infectionMultiplier++;
+                onInfectionMultUpdate.Invoke(infectionMultiplier);
             }
             onInfectionCounterUpdate.Invoke(currentInfectionProgress);
         }
         prevHealth = currentHealth;
     }
 
+    public void ResetInfectionMultiplier()
+    {
+        infectionMultiplier = 1;
+        currentInfectionProgress = 0;
+        onInfectionMultUpdate.Invoke(infectionMultiplier);
+        onInfectionCounterUpdate.Invoke(currentInfectionProgress);
+    }
 
     public void PurchaseUpgrade(Upgrade upgrade)
     {
@@ -87,7 +94,7 @@ public class UpgradesManager : Manager
     }
     public void AddXP(int value)
     {
-        xp += value * InfectionMultiplier;
+        xp += value * infectionMultiplier;
         while (xp >= xpToNextSkillPoint.Value)
         {
             xp -= (int)xpToNextSkillPoint.Value;
@@ -114,6 +121,16 @@ public class UpgradesManager : Manager
         }
         PlayerPrefs.SetInt("UPGRADEPOINTS", upgradePoints);
 
+    }
+
+    public void ResetUpgrades()
+    {
+        foreach (var upgrade in upgrades)
+        {
+            upgrade.level = 0;
+        }
+        upgradePoints = 0;
+        SaveUpgrades();
     }
 
     private void OnDestroy()

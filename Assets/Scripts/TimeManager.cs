@@ -17,6 +17,15 @@ public static class TimeManager
         OnChangePauseState(paused);
     }
 
+    public static void SetPause(bool paused)
+    {
+        if (TimeManager.paused != paused)
+        {
+            TimeManager.paused = paused;
+            OnChangePauseState(paused);
+        }
+    }
+
     public static float deltaTime
     {
         get
