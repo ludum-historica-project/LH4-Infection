@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class UpgradesMenu : MonoBehaviour
 {
     public UpgradeDisplay upgradeDisplayPrefab;
@@ -30,6 +30,11 @@ public class UpgradesMenu : MonoBehaviour
         }
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     void Refresh()
     {
         int availablePoints = Director.GetManager<UpgradesManager>().upgradePoints;
@@ -50,6 +55,6 @@ public class UpgradesMenu : MonoBehaviour
     // Update is called once per frame
     public void Play()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("Gameplay");
     }
 }
