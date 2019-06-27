@@ -44,6 +44,7 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (TimeManager.paused) return;
         if (!locked)
         {
             hitEnemies.Clear();
@@ -56,7 +57,7 @@ public class CharacterController : MonoBehaviour
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
             transform.up = Vector3.Slerp(transform.up, (mousePos - transform.position).normalized, .333f);
-            _rb2D.MovePosition(transform.position + direction * Time.fixedDeltaTime * moveSpeed.Value);
+            _rb2D.MovePosition(transform.position + direction * TimeManager.fixedDeltaTime * moveSpeed.Value);
             if (Input.GetMouseButtonDown(0))
             {
                 _animator.SetTrigger("Swing");

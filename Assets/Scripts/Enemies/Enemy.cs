@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (TimeManager.paused) return;
         foreach (var spriteRenderer in _spriteRenderers)
         {
             spriteRenderer.color = Color.Lerp(spriteRenderer.color, Color.white, .1f);

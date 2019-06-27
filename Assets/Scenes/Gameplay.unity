@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 263185000}
   - component: {fileID: 263185003}
   - component: {fileID: 263185004}
+  - component: {fileID: 263185005}
   m_Layer: 5
   m_Name: DeathPanel
   m_TagString: Untagged
@@ -441,6 +442,18 @@ MonoBehaviour:
   winMessage: YOU SURVIVED
   frontText: {fileID: 1774008353}
   backText: {fileID: 364490508}
+--- !u!114 &263185005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263184998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a72f10b7ec4ea488637ec3e4fb819a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &357796945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,6 +2945,7 @@ GameObject:
   - component: {fileID: 1837766443}
   - component: {fileID: 1837766442}
   - component: {fileID: 1837766444}
+  - component: {fileID: 1837766445}
   m_Layer: 0
   m_Name: EnemyController
   m_TagString: Untagged
@@ -3006,6 +3020,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1837766445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837766441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a72f10b7ec4ea488637ec3e4fb819a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1866862037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,6 +3415,7 @@ GameObject:
   - component: {fileID: 1992355891}
   - component: {fileID: 1992355892}
   - component: {fileID: 1992355893}
+  - component: {fileID: 1992355894}
   m_Layer: 8
   m_Name: CharacterController
   m_TagString: Untagged
@@ -3552,3 +3579,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1992355894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992355887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a72f10b7ec4ea488637ec3e4fb819a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

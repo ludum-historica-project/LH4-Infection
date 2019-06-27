@@ -19,12 +19,12 @@ public class EnemyRoamer : Enemy
         base.Update();
         if (_currentStunTime <= 0)
         {
-            MoveTo(transform.position + _direction * Time.deltaTime * speed);
-            transform.up = Vector3.RotateTowards(transform.up, _direction, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 1);
+            MoveTo(transform.position + _direction * TimeManager.deltaTime * speed);
+            transform.up = Vector3.RotateTowards(transform.up, _direction, rotationSpeed * Mathf.Deg2Rad * TimeManager.deltaTime, 1);
         }
         else
         {
-            _currentStunTime -= Time.deltaTime;
+            _currentStunTime -= TimeManager.deltaTime;
         }
     }
 

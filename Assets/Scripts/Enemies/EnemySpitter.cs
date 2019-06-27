@@ -30,7 +30,7 @@ public class EnemySpitter : Enemy
             _direction = Vector3.ProjectOnPlane(_target.transform.position - transform.position, Vector3.forward).normalized;
             if (Vector2.Distance(myPos, targetPos) > range)
             {
-                MoveTo(transform.position + _direction * Time.deltaTime * speed);
+                MoveTo(transform.position + _direction * TimeManager.deltaTime * speed);
             }
             else
             {
@@ -42,17 +42,17 @@ public class EnemySpitter : Enemy
                 }
                 else
                 {
-                    _currentShootCooldown -= Time.deltaTime;
+                    _currentShootCooldown -= TimeManager.deltaTime;
                 }
             }
 
         }
         else
         {
-            _direction = Vector3.RotateTowards(_direction, transform.right * _roamDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime / 10, 1).normalized;
-            MoveTo(transform.position + _direction * Time.deltaTime * speed);
+            _direction = Vector3.RotateTowards(_direction, transform.right * _roamDirection, rotationSpeed * Mathf.Deg2Rad * TimeManager.deltaTime / 10, 1).normalized;
+            MoveTo(transform.position + _direction * TimeManager.deltaTime * speed);
         }
-        transform.up = Vector3.RotateTowards(transform.up, _direction, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 1);
+        transform.up = Vector3.RotateTowards(transform.up, _direction, rotationSpeed * Mathf.Deg2Rad * TimeManager.deltaTime, 1);
         transform.up = Vector3.ProjectOnPlane(transform.up, Vector3.forward).normalized;
     }
 

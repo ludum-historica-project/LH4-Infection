@@ -33,7 +33,7 @@ public class Boss : Enemy
             _direction = (_target.transform.position - transform.position);
             _direction.z = 0;
             _direction.Normalize();
-            transform.up = Vector3.RotateTowards(transform.up, _direction, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 1).normalized;
+            transform.up = Vector3.RotateTowards(transform.up, _direction, rotationSpeed * Mathf.Deg2Rad * TimeManager.deltaTime, 1).normalized;
             if (Vector3.Distance(_target.transform.position, transform.position) < range)//attack
             {
                 _animator.SetBool("Walking", false);
@@ -52,14 +52,14 @@ public class Boss : Enemy
                 }
                 else
                 {
-                    _currentCooldown -= Time.deltaTime;
+                    _currentCooldown -= TimeManager.deltaTime;
                 }
             }
             else
             {
-                _currentCooldown = Mathf.Clamp(_currentCooldown + Time.deltaTime / 10, 0, cooldown);
+                _currentCooldown = Mathf.Clamp(_currentCooldown + TimeManager.deltaTime / 10, 0, cooldown);
                 _animator.SetBool("Walking", true);
-                MoveTo(transform.position + _direction * Time.deltaTime * speed);
+                MoveTo(transform.position + _direction * TimeManager.deltaTime * speed);
             }
         }
         else

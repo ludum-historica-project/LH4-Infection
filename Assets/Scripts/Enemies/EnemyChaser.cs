@@ -40,11 +40,11 @@ public class EnemyChaser : Enemy
             _direction = Vector3.SlerpUnclamped(_direction, Vector3.Cross(_direction, Vector3.forward), Random.Range(-.05f, .05f));
             speedMult = .5f;
         }
-        transform.up = Vector3.RotateTowards(transform.up, _direction, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 1);
+        transform.up = Vector3.RotateTowards(transform.up, _direction, rotationSpeed * Mathf.Deg2Rad * TimeManager.deltaTime, 1);
         transform.up = Vector3.ProjectOnPlane(transform.up, Vector3.forward).normalized;
-        MoveTo(transform.position + _direction * Time.deltaTime * speed * speedMult);
-        if (_currentFleeTime > 0) _currentFleeTime -= Time.deltaTime;
-        if (_currentHitCooldown > 0) _currentHitCooldown -= Time.deltaTime;
+        MoveTo(transform.position + _direction * TimeManager.deltaTime * speed * speedMult);
+        if (_currentFleeTime > 0) _currentFleeTime -= TimeManager.deltaTime;
+        if (_currentHitCooldown > 0) _currentHitCooldown -= TimeManager.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

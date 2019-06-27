@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1947082912}
   - component: {fileID: 1947082911}
   - component: {fileID: 1947082913}
+  - component: {fileID: -5440189561494888086}
   m_Layer: 10
   m_Name: Bile Projectile
   m_TagString: Untagged
@@ -4874,3 +4875,15 @@ MonoBehaviour:
   speed: 5
   lifetime: 2.5
   damage: 2
+--- !u!114 &-5440189561494888086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766099179973726218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a725069c99b674458735b4881045c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

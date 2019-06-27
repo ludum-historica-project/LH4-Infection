@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            currentCooldown -= Time.deltaTime;
+            currentCooldown -= TimeManager.deltaTime;
         }
     }
 
