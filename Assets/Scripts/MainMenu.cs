@@ -5,6 +5,8 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
 
+    public OptionsMenu optionsMenu;
+
     public void Play()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("UpgradesMenu");
@@ -12,7 +14,7 @@ public class MainMenu : MonoBehaviour
 
     public void ShowOptions()
     {
-
+        optionsMenu.Show();
     }
 
     public void Quit()

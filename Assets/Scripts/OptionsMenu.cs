@@ -13,6 +13,9 @@ public class OptionsMenu : MonoBehaviour
     public Image resetProgressBar;
 
     public float resetTime = 3;
+
+    public bool openWithESC;
+
     float _resetProgress;
 
     bool _resetting;
@@ -76,7 +79,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (openWithESC && Input.GetKeyDown(KeyCode.Escape))
         {
             if (_open)
             {
