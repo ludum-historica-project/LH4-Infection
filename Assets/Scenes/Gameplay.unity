@@ -1856,6 +1856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5444323e386eeb4cb07c7ce274aaf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPlayerHealthChanged: {fileID: 11400000, guid: e239e677e4895d944a8d7039c97d35f0,
+    type: 2}
   OnMutationCountChanged: {fileID: 11400000, guid: 4c9ea247fb372f147a3444f4084862ea,
     type: 2}
   OnInfectionMultChanged: {fileID: 11400000, guid: fb7c2fdbccda09d4ea001faf64cecb08,
@@ -2959,6 +2961,8 @@ MonoBehaviour:
     type: 3}
   xpBallPrefab: {fileID: 617315544322113945, guid: 7b8331c868cd3aa45958c71490e59c76,
     type: 3}
+  enemyDeathParticle: {fileID: 5290318885050610323, guid: 5ee7640d193058e44ba0e9ee93be3d4f,
+    type: 3}
   limits: {fileID: 1339225565}
   cooldown: 5
   gameOverScreen: {fileID: 263185004}
@@ -3386,7 +3390,7 @@ GameObject:
   - component: {fileID: 1992355892}
   - component: {fileID: 1992355893}
   m_Layer: 8
-  m_Name: Player
+  m_Name: CharacterController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3469,8 +3473,13 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: ee057ed9a5158a3458ca8a120fe693ca, type: 2}
     localValue: 100
   currentHealth: 5
+  takeDamageSound: {fileID: 11400000, guid: 0d8f30d10a777484fb809b8d33762432, type: 2}
+  swingSwordSound: {fileID: 11400000, guid: 86456a1ff7d2d484b880ed1585a2aad4, type: 2}
+  dealDamageSound: {fileID: 11400000, guid: 57148655775e43d458d8477c48b470c4, type: 2}
   playerHealthUpdated: {fileID: 11400000, guid: e239e677e4895d944a8d7039c97d35f0,
     type: 2}
+  playerDeathParticle: {fileID: 1418785595832599021, guid: a26fe2dc470bb014b9a545adb3deee76,
+    type: 3}
   locked: 0
 --- !u!4 &1992355890
 Transform:

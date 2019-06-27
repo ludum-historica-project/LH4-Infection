@@ -10,15 +10,20 @@ public class CharacterController : MonoBehaviour
     public FloatReference maxHealth;
     public float currentHealth;
 
-
+    public SoundValue takeDamageSound;
+    public SoundValue swingSwordSound;
+    public SoundValue dealDamageSound;
 
     public ScriptableEvent playerHealthUpdated;
+    public ParticleSystem playerDeathParticle;
 
     public bool locked = false;
 
     private Rigidbody2D _rb2D;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+
+
 
     Vector2 knockback;
 
@@ -65,22 +70,30 @@ public class CharacterController : MonoBehaviour
     {
         if (!hitEnemies.Contains(enemy))
         {
+            Director.GetManager<SoundManager>().PlaySound(dealDamageSound);
             enemy.TakeDamage(attackDamage.Value);
             hitEnemies.Add(enemy);
         }
     }
 
+    public void PlaySwordSwingSound()
+    {
+        Director.GetManager<SoundManager>().PlaySound(swingSwordSound);
+    }
+
     public void TakeDamage(int damage, Enemy source)
     {
+        Director.GetManager<SoundManager>().PlaySound(takeDamageSound);
         if (source) knockback += ((Vector2)(transform.position - source.transform.position)).normalized * damage / 10;
         _spriteRenderer.color = Color.red;
-        currentHealth -= damage;
+        currentHealth = Mathf.Max(currentHealth - damage, 0);
         if (playerHealthUpdated)
         {
             playerHealthUpdated.Invoke(currentHealth);
         }
         if (currentHealth <= 0)
         {
+            Instantiate(playerDeathParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

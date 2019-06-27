@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class PlayerCanvas : MonoBehaviour
 {
+    public ScriptableEvent OnPlayerHealthChanged;
     public ScriptableEvent OnMutationCountChanged;
     public ScriptableEvent OnInfectionMultChanged;
     public TextMeshProUGUI mutationText;
@@ -16,6 +17,7 @@ public class PlayerCanvas : MonoBehaviour
     {
         OnMutationCountChanged.OnInvoke += UpdateMutationCount;
         OnInfectionMultChanged.OnInvoke += UpdateInfectionCount;
+        OnPlayerHealthChanged.OnInvoke += ReviseMenuStatus;
         UpdateMutationCount(Director.GetManager<UpgradesManager>().upgradePoints);
         UpdateInfectionCount(1);
     }
@@ -27,12 +29,16 @@ public class PlayerCanvas : MonoBehaviour
     void UpdateInfectionCount(float count)
     {
         infectionText.text = "x" + count.ToString();
-
     }
 
-    // Update is called once per frame
-    void Update()
+    void ReviseMenuStatus(float count)
     {
-
+        if (count <= 0)
+        {
+            OnMutationCountChanged.OnInvoke -= UpdateMutationCount;
+            OnInfectionMultChanged.OnInvoke -= UpdateInfectionCount;
+            OnPlayerHealthChanged.OnInvoke -= ReviseMenuStatus;
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d21a9c2627e14facffaa1bf0d5fe2, type: 3}
+  m_Name: PlayerTakeDamage
+  m_EditorClassIdentifier: 
+  _value: {fileID: 0}
+  volume: 1
+  loop: 0
+  mixerGroup: {fileID: 0}
+  pitch: 1
+  clips:
+  - {fileID: 8300000, guid: b7b6703a6e4219443889001f3b93f838, type: 3}
+  - {fileID: 8300000, guid: 0cd12b1b84cf12c4aa302cedad09209f, type: 3}
+  - {fileID: 8300000, guid: 7b884649356b3a64b8bf4f4bae33863e, type: 3}
+  - {fileID: 8300000, guid: 71a4d75c756bf754abf0b3831fd1ecf3, type: 3}
+  - {fileID: 8300000, guid: 1ae1aa506c454f74486ec6183482f294, type: 3}
+  - {fileID: 8300000, guid: 7b1d048b55e7a0b4b9c571f35bb2b617, type: 3}
+  - {fileID: 8300000, guid: 552dbadb5ad75d447891fad58349d56c, type: 3}

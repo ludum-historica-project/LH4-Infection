@@ -8,8 +8,12 @@ public class EnemyController : MonoBehaviour
     public Enemy chaserPrefab;
     public Enemy spitterPrefab;
 
+
     public Boss bossPrefab;
     public XPBall xpBallPrefab;
+
+
+    public ParticleSystem enemyDeathParticle;
 
     public EnemyLimits limits;
 
@@ -108,6 +112,7 @@ public class EnemyController : MonoBehaviour
 
     void OnEnemyDeath(int xp, Vector3 pos)
     {
+        Instantiate(enemyDeathParticle, pos, Quaternion.identity);
         for (int i = 0; i < xp; i++)
         {
             Instantiate(xpBallPrefab, pos, Quaternion.AngleAxis(Random.Range(0, 360), Vector3.forward));
