@@ -20,5 +20,5 @@ MonoBehaviour:
     localValue: 0
   level: 0
   multPerLevel: 0.1
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c7adfe99730d3934fad080de24d92c7d, type: 3}
   description: Greater hardiness and resilience.

@@ -20,5 +20,5 @@ MonoBehaviour:
     localValue: 2
   level: 0
   multPerLevel: 0.5
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 43c7ec0385b97c240a63afb164beadbb, type: 3}
   description: Greater strength and destructive force.

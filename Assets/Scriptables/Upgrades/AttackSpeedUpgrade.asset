@@ -20,5 +20,5 @@ MonoBehaviour:
     localValue: 1
   level: 0
   multPerLevel: 0.1
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 86a48cf5be6c6e94ebd4b45219c81d5e, type: 3}
   description: Greater agility and control of the blade.

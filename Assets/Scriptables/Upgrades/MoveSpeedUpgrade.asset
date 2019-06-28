@@ -20,7 +20,7 @@ MonoBehaviour:
     localValue: 5
   level: 0
   multPerLevel: 0.1
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 5178bae33701fcf46afaece9cc44c340, type: 3}
   description: 'Greater nimbleness and speed of foot.
 
 '

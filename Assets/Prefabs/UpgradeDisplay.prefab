@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 2358819253046366387}
   - component: {fileID: 2358819253046366385}
   - component: {fileID: 1715872250}
+  - component: {fileID: -3869281964963757873}
   m_Layer: 5
   m_Name: UpgradeDisplay
   m_TagString: Untagged
@@ -304,7 +305,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: f827959a2c55ec648a8cb271b0ec1df8, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -386,6 +387,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &-3869281964963757873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358819253046366397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8dc095c875d05f4b9714b1814405f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 11400000, guid: ae70b154f11ad8c4bb9b199fe922bd99, type: 2}
 --- !u!1 &2358819253221579262
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +465,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1a6bc00d7e5c11e499f67aca892359e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
